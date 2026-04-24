@@ -29,7 +29,7 @@ class HybridEngine extends Engine {
     constructor() {
         super("Hybrid");
         this.gasEngine = new GasEngine();
-        this.electricEngine = new GasEngine();
+        this.electricEngine = new ElectricEngine();
         this.currrentEngine = this.electricEngine;
     }
     notifySpeedChange(carSpeed) {
@@ -114,8 +114,15 @@ class CarFactory {
 const carFactory = new CarFactory();
 
 const car1 = carFactory.createCar("Gas");
-//car1.start();
+car1.start();
+//car1.accelerate();
+//car1.accelerate();
+//car1.brake();
+//carFactory.replaceEngine(car1, "Electric");
+//car1.accelerate();
+//car1.brake();
+carFactory.replaceEngine(car1, "Hybrid");
 car1.accelerate();
 car1.accelerate();
 car1.brake();
-//car1.stop();
+car1.stop();
