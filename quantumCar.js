@@ -15,8 +15,16 @@ class Engine{
         console.log(`Car speed is now ${carSpeed}`);
     }
 }
-class GasEngine extends Engine {}
-class ElectricEngine extends Engine {}
+class GasEngine extends Engine {
+    constructor(){
+        super("Gas");
+    }
+}
+class ElectricEngine extends Engine {
+    constructor(){
+        super("Electric");
+    }
+}
 class HybridEngine extends Engine {}
 
 class Car{}
