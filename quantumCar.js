@@ -78,6 +78,7 @@ class Car {
             if (this.carSpeed > 200) {
                 this.carSpeed = 200;
             }
+            this.engine.increase();
         }
         console.log(`Car speed is now ${this.carSpeed}`);
         this.engine.notifySpeedChange(this.carSpeed);
@@ -88,6 +89,7 @@ class Car {
             if (this.carSpeed < 0) {
                 this.carSpeed = 0;
             }
+            this.engine.decrease();
         }
         console.log(`Car speed is now ${this.carSpeed}`);
         this.engine.notifySpeedChange(this.carSpeed);
