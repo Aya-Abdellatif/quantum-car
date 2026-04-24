@@ -58,9 +58,18 @@ class Car {
         console.log(`Car Engine is replaced successfully to ${this.engine.engineType}`);
     }
     start() {
+        this.engine.engineSpeed = 0;
+        this.carSpeed = 0;
         console.log("Car started");
+        this.engine.notifySpeedChange(this.carSpeed);
     }
     stop() {
+        while(this.engine.engineSpeed > 0){
+            this.engine.decrease();
+        }
+        while(this.carSpeed > 0){
+            this.brake();
+        }
         console.log("Car stopped");
     }
     accelerate() {
@@ -121,5 +130,5 @@ carFactory.replaceEngine(car1, "Hybrid");
 car1.accelerate();
 car1.accelerate();
 car1.accelerate();
-car1.brake();
+//car1.brake();
 car1.stop();
