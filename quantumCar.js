@@ -1,5 +1,6 @@
 class Engine{
-    constructor(){
+    constructor(engineType){
+        this.engineType = engineType;
         this.engineSpeed = 0;
     }
     increase(){
