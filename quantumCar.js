@@ -35,16 +35,16 @@ class HybridEngine extends Engine {
         super("Hybrid");
         this.gasEngine = new GasEngine();
         this.electricEngine = new ElectricEngine();
-        this.currrentEngine = this.electricEngine;
+        this.currentEngine = this.electricEngine;
     }
     notifySpeedChange(carSpeed) {
         if (carSpeed >= 50) {
-            this.currrentEngine = this.gasEngine;
+            this.currentEngine = this.gasEngine;
         }
         else {
-            this.currrentEngine = this.electricEngine;
+            this.currentEngine = this.electricEngine;
         }
-        console.log(`Engine Notification: Hybrid Engine switched to ${this.currrentEngine.engineType} Engine at speed ${carSpeed}`);
+        console.log(`Engine Notification: Hybrid Engine switched to ${this.currentEngine.engineType} Engine at speed ${carSpeed}`);
     }
 }
 
