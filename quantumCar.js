@@ -43,7 +43,32 @@ class HybridEngine extends Engine {
     }
 }
 
-class Car{}
+class Car{
+    constructor(engine){
+        this.engine = engine;
+        this.carSpeed = 0;
+    }
+    replaceEngine(engine){
+        this.engine = engine;
+        console.log(`Car Engine is replaced successfully to ${this.engine.engineType}`);
+    }
+    start(){
+        console.log("Car started");
+    }
+    stop(){
+        console.log("Car stopped");
+    }
+    accelerate(){
+        if(this.carSpeed < 200){
+            this.carSpeed += 20;
+            if (this.carSpeed > 200){
+                this.carSpeed = 200;
+            }
+        }
+        console.log(`Car speed is now ${this.carSpeed}`);
+        this.engine.notifySpeedChange(this.carSpeed);
+    }
+}
 
 class CarFactory{
 
