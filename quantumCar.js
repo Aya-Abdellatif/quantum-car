@@ -44,7 +44,7 @@ class HybridEngine extends Engine {
         else {
             this.currentEngine = this.electricEngine;
         }
-        console.log(`Engine Notification: Hybrid Engine switched to ${this.currentEngine.engineType} Engine at speed ${carSpeed}`);
+        console.log(`Engine Notification: Hybrid Engine is using ${this.currentEngine.engineType} Engine at speed ${carSpeed}`);
     }
 }
 
