@@ -12,7 +12,7 @@ class Engine {
         console.log(`Engine speed decreased to ${this.engineSpeed}`);
     }
     notifySpeedChange(carSpeed) {
-        console.log(`Car speed is now ${carSpeed}`);
+        console.log(`Engine Notification: Car speed is now ${carSpeed}`);
     }
 }
 class GasEngine extends Engine {
@@ -39,7 +39,7 @@ class HybridEngine extends Engine {
         else {
             this.currrentEngine = this.electricEngine;
         }
-        console.log(`Hybrid Engine switched to ${this.currrentEngine.engineType} Engine at speed ${carSpeed}`);
+        console.log(`Engine Notification: Hybrid Engine switched to ${this.currrentEngine.engineType} Engine at speed ${carSpeed}`);
     }
 }
 
