@@ -109,3 +109,13 @@ class CarFactory {
         }
     }
 }
+
+//----------------------------
+const carFactory = new CarFactory();
+
+const car1 = carFactory.createCar("Gas");
+//car1.start();
+car1.accelerate();
+car1.accelerate();
+car1.brake();
+//car1.stop();
