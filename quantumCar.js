@@ -1,68 +1,78 @@
-class Engine{
-    constructor(engineType){
+class Engine {
+    constructor(engineType) {
         this.engineType = engineType;
         this.engineSpeed = 0;
     }
-    increase(){
+    increase() {
         this.engineSpeed++;
         console.log(`Engine speed increased to ${this.engineSpeed}`);
     }
-    decrease(){
+    decrease() {
         this.engineSpeed--;
         console.log(`Engine speed decreased to ${this.engineSpeed}`);
     }
-    notifySpeedChange(carSpeed){
+    notifySpeedChange(carSpeed) {
         console.log(`Car speed is now ${carSpeed}`);
     }
 }
 class GasEngine extends Engine {
-    constructor(){
+    constructor() {
         super("Gas");
     }
 }
 class ElectricEngine extends Engine {
-    constructor(){
+    constructor() {
         super("Electric");
     }
 }
 class HybridEngine extends Engine {
-    constructor(){
+    constructor() {
         super("Hybrid");
         this.gasEngine = new GasEngine();
         this.electricEngine = new GasEngine();
         this.currrentEngine = this.electricEngine;
     }
-    notifySpeedChange(carSpeed){
-        if(carSpeed>=50){
+    notifySpeedChange(carSpeed) {
+        if (carSpeed >= 50) {
             this.currrentEngine = this.gasEngine;
         }
-        else{
+        else {
             this.currrentEngine = this.electricEngine;
         }
         console.log(`Hybrid Engine switched to ${this.currrentEngine.engineType} Engine at speed ${carSpeed}`);
     }
 }
 
-class Car{
-    constructor(engine){
+class Car {
+    constructor(engine) {
         this.engine = engine;
         this.carSpeed = 0;
     }
-    replaceEngine(engine){
+    replaceEngine(engine) {
         this.engine = engine;
         console.log(`Car Engine is replaced successfully to ${this.engine.engineType}`);
     }
-    start(){
+    start() {
         console.log("Car started");
     }
-    stop(){
+    stop() {
         console.log("Car stopped");
     }
-    accelerate(){
-        if(this.carSpeed < 200){
+    accelerate() {
+        if (this.carSpeed < 200) {
             this.carSpeed += 20;
-            if (this.carSpeed > 200){
+            if (this.carSpeed > 200) {
                 this.carSpeed = 200;
+            }
+        }
+        console.log(`Car speed is now ${this.carSpeed}`);
+        this.engine.notifySpeedChange(this.carSpeed);
+    }
+    brake() {
+        if (this.carSpeed > 0) {
+            this.carSpeed -= 20;
+            if (this.carSpeed < 0) {
+                this.carSpeed = 0;
             }
         }
         console.log(`Car speed is now ${this.carSpeed}`);
@@ -70,6 +80,6 @@ class Car{
     }
 }
 
-class CarFactory{
+class CarFactory {
 
 }
