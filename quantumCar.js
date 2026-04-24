@@ -82,28 +82,19 @@ class Car {
 
 class CarFactory {
     createCar(engineType) {
-        switch (engineType) {
-            case "Gas":
-                return new Car(new GasEngine());
-            case "Electric":
-                return new Car(new ElectricEngine());
-            case "Hybrid":
-                return new Car(new HybridEngine());
-            default:
-                throw new Error("Invalid engine type");
-        }
+        return new Car(this.chooseEngine(engineType));
     }
     replaceEngine(car, engineType) {
+        car.replaceEngine(this.chooseEngine(engineType));
+    }
+    chooseEngine(engineType) {
         switch (engineType) {
             case "Gas":
-                car.replaceEngine(new GasEngine());
-                break;
+                return new GasEngine();
             case "Electric":
-                car.replaceEngine(new ElectricEngine());
-                break;
+                return new ElectricEngine();
             case "Hybrid":
-                car.replaceEngine(new HybridEngine());
-                break;
+                return new HybridEngine();
             default:
                 throw new Error("Invalid engine type");
         }
@@ -122,6 +113,7 @@ car1.start();
 //car1.accelerate();
 //car1.brake();
 carFactory.replaceEngine(car1, "Hybrid");
+car1.accelerate();
 car1.accelerate();
 car1.accelerate();
 car1.brake();
