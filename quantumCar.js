@@ -64,12 +64,13 @@ class Car {
         this.engine.notifySpeedChange(this.carSpeed);
     }
     stop() {
-        while(this.engine.engineSpeed > 0){
-            this.engine.decrease();
-        }
-        while(this.carSpeed > 0){
+        while (this.carSpeed > 0) {
             this.brake();
         }
+        while (this.engine.engineSpeed > 0) {
+            this.engine.decrease();
+        }
+
         console.log("Car stopped");
     }
     accelerate() {
