@@ -81,8 +81,8 @@ class Car {
 }
 
 class CarFactory {
-    createCar(engineType){
-        switch(engineType){
+    createCar(engineType) {
+        switch (engineType) {
             case "Gas":
                 return new Car(new GasEngine());
             case "Electric":
@@ -90,7 +90,22 @@ class CarFactory {
             case "Hybrid":
                 return new Car(new HybridEngine());
             default:
-                throw new Error ("Invalid engine type");
+                throw new Error("Invalid engine type");
+        }
+    }
+    replaceEngine(car, engineType) {
+        switch (engineType) {
+            case "Gas":
+                car.replaceEngine(new GasEngine());
+                break;
+            case "Electric":
+                car.replaceEngine(new ElectricEngine());
+                break;
+            case "Hybrid":
+                car.replaceEngine(new HybridEngine());
+                break;
+            default:
+                throw new Error("Invalid engine type");
         }
     }
 }
