@@ -8,8 +8,13 @@ class Engine {
         console.log(`Engine speed increased to ${this.engineSpeed}`);
     }
     decrease() {
-        this.engineSpeed--;
-        console.log(`Engine speed decreased to ${this.engineSpeed}`);
+        if (this.engineSpeed > 0) {
+            this.engineSpeed--;
+            console.log(`Engine speed decreased to ${this.engineSpeed}`);
+        }
+        else {
+            console.log("Engine is already at speed 0");
+        }
     }
     notifySpeedChange(carSpeed) {
         console.log(`Engine Notification: Car speed is now ${carSpeed}`);
